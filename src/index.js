@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import CounterApp from "./Counter/CounterApp";
 import * as serviceWorker from "./serviceWorker";
-import { store } from "./reducer";
+import { store } from "./Counter/reducer";
 import { createStore } from "redux";
 import { connect, Provider } from "react-redux";
 
 ReactDOM.render(
   <Provider store={store}>
-    <App value={store.getState()} />
+    <CounterApp value={store.getState()} />
   </Provider>,
   document.getElementById("root")
 );
