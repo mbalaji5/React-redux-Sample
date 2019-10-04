@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { store } from "./reducer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends React.Component {
+  test;
+  count;
+  constructor(props) {
+    super(props);
+    this.state = { count: store.getState() };
+    console.log(this.props.value);
+    this.increment = this.increment.bind(this);
+
+    store.subscribe(x => {
+      this.setState({ count: store.getState() });
+    });
+  }
+  increment() {
+    store.dispatch({ type: "Increment" });
+    this.count = store.getState();
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Welcome to redux</h1>
+        {this.state.count}
+        <button
+          onClick={() => {
+            store.dispatch({ type: "Decrement" });
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          Decrement
+        </button>
+        <button onClick={this.increment}>Increment</button>
+        <button
+          onClick={() => {
+            store.dispatch({ type: "Reset" });
+          }}
+        >
+          Reset
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
