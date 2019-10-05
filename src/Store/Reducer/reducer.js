@@ -10,7 +10,7 @@ export const myreducer = (state = 0, action) => {
     case "Rest":
       return (state = 0);
     default:
-      return (state = 10);
+      return (state = 0);
   }
 };
 const initialState = {
