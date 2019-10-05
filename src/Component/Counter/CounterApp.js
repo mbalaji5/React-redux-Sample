@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../logo.svg";
-import "../App.css";
-import { store } from "./reducer";
+import logo from "../../logo.svg";
+import "../../App.css";
+import { store } from "../../Store/Reducer/reducer";
 
 class CounterApp extends React.Component {
   test;
@@ -9,7 +9,6 @@ class CounterApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = { count: store.getState() };
-    console.log(this.props.value);
     this.increment = this.increment.bind(this);
 
     store.subscribe(x => {

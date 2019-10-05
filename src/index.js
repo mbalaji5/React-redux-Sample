@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import CounterApp from "./Counter/CounterApp";
+import CounterApp from "./Component/Counter/CounterApp";
 import * as serviceWorker from "./serviceWorker";
-import { store } from "./Counter/reducer";
+import { store } from "./Store/Reducer/reducer";
 import { createStore } from "redux";
 import { connect, Provider } from "react-redux";
+import { InputTodoApp } from "./Component/InputTodo/inputTodo";
 
 ReactDOM.render(
   <Provider store={store}>
-    <CounterApp value={store.getState()} />
+    {/* <CounterApp value={store.getState()} /> */}
+
+    <InputTodoApp></InputTodoApp>
   </Provider>,
   document.getElementById("root")
 );
