@@ -16,7 +16,7 @@ export const myreducer = (state = 0, action) => {
 const initialState = {
   item: [
     {
-      id: 0,
+      id: 1,
       text: ""
     }
   ]
